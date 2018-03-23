@@ -16,5 +16,10 @@ class UsersTableSeeder extends Seeder
             'name' => 'methir',
             'email' => 'methir.game@gmail.com',
         ]);
+
+        factory(User::class)->create([
+            'name' => 'destrus',
+            'email' => 'destrus_2011@hotmail.com',
+        ]);
     }
 }
