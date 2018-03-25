@@ -14,5 +14,13 @@ use Illuminate\Http\Request;
 */
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+    //return $request->user();
+    //return auth()->user();
+    return response()->success($request->user());
 });
+
+Route::group(['namespace' => 'API', 'middleware' => 'auth:api'], function() {
+    Route::apiResource('personas', 'PersonaController');
+});
+
+

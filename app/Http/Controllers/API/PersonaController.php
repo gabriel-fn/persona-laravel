@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Persona;
 
 class PersonaController extends Controller
 {
@@ -14,7 +15,8 @@ class PersonaController extends Controller
      */
     public function index()
     {
-        //
+        $personas = auth()->user()->personas()->orderBy('nome', 'asc')->get();
+        return response()->success($personas);
     }
 
     /**
@@ -24,8 +26,16 @@ class PersonaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        /*
+        $persona = $request->only(['nome','np','forca','destreza','constituicao',
+                        'inteligencia','sabedoria','carisma','dano','ataque',
+                        'defesa','vida','iniciativa','resistencia','reflexo',
+                        'fortitude','vontade',]);
+        */
+
+        $status = auth()->user()->personas()->create($request->all());
+        return response()->success($status);
     }
 
     /**
@@ -48,7 +58,9 @@ class PersonaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $persona = Persona::findOrFail($id);
+        $status = $persona->update($request->all());
+        return response()->success($status);
     }
 
     /**
@@ -59,6 +71,8 @@ class PersonaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $persona = Persona::findOrFail($id);
+        $status = $persona->delete();
+        return response()->success($status);
     }
 }

@@ -1,10 +1,11 @@
 <?php
 
 use Faker\Generator as Faker;
+use App\Persona;
 
-$factory->define(App\Persona::class, function (Faker $faker) {
+$factory->define(Persona::class, function (Faker $faker) {
     return [
-        'id_user' => rand(1, 2),
+        'user_id' => rand(1, 2),
         'nome' => $faker->name,
         'np' => rand(0, 20),
 
