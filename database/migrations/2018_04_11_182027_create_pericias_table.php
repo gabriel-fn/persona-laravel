@@ -17,6 +17,7 @@ class CreatePericiasTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->string('habilidade_chave');
+            $table->timestamps();
         });
     }
 

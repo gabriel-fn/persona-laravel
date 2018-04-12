@@ -14,4 +14,14 @@ class Persona extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    public function pericias()
+    {
+        return $this->belongsToMany('App\Pericia');
+    }
+
+    public function feitos()
+    {
+        return $this->belongsToMany('App\Feito');
+    }
 }

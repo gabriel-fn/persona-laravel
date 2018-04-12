@@ -17,6 +17,7 @@ class CreateFeitosTable extends Migration
             $table->increments('id');
             $table->string('nome');
             $table->integer('graduacao_maxima');
+            $table->timestamps();
         });
     }
 
