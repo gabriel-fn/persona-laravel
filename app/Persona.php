@@ -17,11 +17,15 @@ class Persona extends Model
 
     public function pericias()
     {
-        return $this->belongsToMany('App\Pericia');
+        return $this->belongsToMany('App\Pericia', 'persona_pericia')
+        ->as('info')
+        ->withPivot('graduacao');
     }
 
     public function feitos()
     {
-        return $this->belongsToMany('App\Feito');
+        return $this->belongsToMany('App\Feito', 'persona_feito')
+        ->as('info')
+        ->withPivot('graduacao');
     }
 }

@@ -24,15 +24,15 @@ class FeitosTableSeeder extends Seeder
         factory(Feito::class)->create(['nome'=>'Ataque Acurado','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Ataque Atordoante','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Ataque Defensivo','graduacao_maxima'=>1]);
-        factory(Feito::class)->create(['nome'=>'Ataque Dominó','graduacao_maxima'=>0]);
-        factory(Feito::class)->create(['nome'=>'Ataque Furtivo','graduacao_maxima'=>0]);
+        factory(Feito::class)->create(['nome'=>'Ataque Dominó','graduacao_maxima'=>2]);
+        factory(Feito::class)->create(['nome'=>'Ataque Furtivo','graduacao_maxima'=>4]);
         factory(Feito::class)->create(['nome'=>'Ataque Imprudente','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Ataque Poderoso','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Atropelar Aprimorado','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Atropelar Rápido','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Bloquear Aprimorado','graduacao_maxima'=>0]);
         factory(Feito::class)->create(['nome'=>'Crítico Aprimorado','graduacao_maxima'=>0]);
-        factory(Feito::class)->create(['nome'=>'Defesa Aprimorada','graduacao_maxima'=>0]);
+        factory(Feito::class)->create(['nome'=>'Defesa Aprimorada','graduacao_maxima'=>2]);
         factory(Feito::class)->create(['nome'=>'Derrubar Aprimorado','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Desarmar Aprimorado','graduacao_maxima'=>0]);
         factory(Feito::class)->create(['nome'=>'Especialização em Ataque','graduacao_maxima'=>0]);
@@ -56,8 +56,8 @@ class FeitosTableSeeder extends Seeder
         factory(Feito::class)->create(['nome'=>'Quebrar Arma','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Redirecionar','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Rolamento Defensivo','graduacao_maxima'=>0]);
-        factory(Feito::class)->create(['nome'=>'Saque Rápido','graduacao_maxima'=>0]);
-        factory(Feito::class)->create(['nome'=>'Tiro Preciso','graduacao_maxima'=>0]);
+        factory(Feito::class)->create(['nome'=>'Saque Rápido','graduacao_maxima'=>2]);
+        factory(Feito::class)->create(['nome'=>'Tiro Preciso','graduacao_maxima'=>2]);
 
         //feitos de pericia
         factory(Feito::class)->create(['nome'=>'Artífice','graduacao_maxima'=>1]);
@@ -67,10 +67,10 @@ class FeitosTableSeeder extends Seeder
         factory(Feito::class)->create(['nome'=>'Bem Relacionado','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Blefe Acrobático','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Contatos','graduacao_maxima'=>1]);
-        factory(Feito::class)->create(['nome'=>'Distrair','graduacao_maxima'=>0]);
+        factory(Feito::class)->create(['nome'=>'Distrair','graduacao_maxima'=>2]);
         factory(Feito::class)->create(['nome'=>'Empatia com Animais','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Esconder-se à Plena Vista','graduacao_maxima'=>1]);
-        factory(Feito::class)->create(['nome'=>'Fascinar','graduacao_maxima'=>0]);
+        factory(Feito::class)->create(['nome'=>'Fascinar','graduacao_maxima'=>4]);
         factory(Feito::class)->create(['nome'=>'Faz-Tudo','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Ferramentas Improvisadas','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Inventor','graduacao_maxima'=>1]);
@@ -81,7 +81,7 @@ class FeitosTableSeeder extends Seeder
 
         //feitos de fortuna
         factory(Feito::class)->create(['nome'=>'Esforço Supremo','graduacao_maxima'=>0]);
-        factory(Feito::class)->create(['nome'=>'Inspirar','graduacao_maxima'=>0]);
+        factory(Feito::class)->create(['nome'=>'Inspirar','graduacao_maxima'=>5]);
         factory(Feito::class)->create(['nome'=>'Liderança','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Sorte','graduacao_maxima'=>0]);
         factory(Feito::class)->create(['nome'=>'Sorte de Principiante','graduacao_maxima'=>1]);
@@ -98,14 +98,14 @@ class FeitosTableSeeder extends Seeder
         factory(Feito::class)->create(['nome'=>'Equipamento','graduacao_maxima'=>0]);
         factory(Feito::class)->create(['nome'=>'Interpor-se','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Memória Eidética','graduacao_maxima'=>1]);
-        factory(Feito::class)->create(['nome'=>'Mudança Rápida','graduacao_maxima'=>0]);
+        factory(Feito::class)->create(['nome'=>'Mudança Rápida','graduacao_maxima'=>2]);
         factory(Feito::class)->create(['nome'=>'Parceiro','graduacao_maxima'=>0]);
         factory(Feito::class)->create(['nome'=>'Plano Genial','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Presença Aterradora','graduacao_maxima'=>0]);
         factory(Feito::class)->create(['nome'=>'Segunda Chance','graduacao_maxima'=>0]);
         factory(Feito::class)->create(['nome'=>'Sem Medo','graduacao_maxima'=>1]);
         factory(Feito::class)->create(['nome'=>'Tolerância','graduacao_maxima'=>0]);
-        factory(Feito::class)->create(['nome'=>'Trabalho em Equipe','graduacao_maxima'=>0]);
+        factory(Feito::class)->create(['nome'=>'Trabalho em Equipe','graduacao_maxima'=>3]);
         factory(Feito::class)->create(['nome'=>'Transe','graduacao_maxima'=>1]);
 
     }

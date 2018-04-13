@@ -8,6 +8,6 @@ class Feito extends Model
 {
     public function personas()
     {
-        return $this->belongsToMany('App\Persona');
+        return $this->belongsToMany('App\Persona', 'persona_feito');
     }
 }
