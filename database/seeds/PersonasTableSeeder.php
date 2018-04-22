@@ -12,6 +12,20 @@ class PersonasTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Persona::class, 5)->create();
+        factory(Persona::class)->create();
+
+        factory(Persona::class, 5)->create()->each(function ($persona){
+            $persona->pericias()->sync([
+                rand(1, 5) => ['graduacao' => 1],
+                rand(6, 10) => ['graduacao' => 1],
+                rand(11, 15) => ['graduacao' => 1]
+            ]);
+
+            $persona->feitos()->sync([
+                rand(1, 5) => ['graduacao' => 1],
+                rand(6, 10) => ['graduacao' => 1],
+                rand(11, 15) => ['graduacao' => 1]
+            ]);
+        });
     }
 }

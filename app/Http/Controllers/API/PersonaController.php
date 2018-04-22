@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\SavePersona;
 use App\Http\Controllers\Controller;
 use App\Persona;
 
@@ -25,15 +26,8 @@ class PersonaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SavePersona $request)
     {   
-        /*
-        $persona = $request->only(['nome','np','forca','destreza','constituicao',
-                        'inteligencia','sabedoria','carisma','dano','ataque',
-                        'defesa','vida','iniciativa','resistencia','reflexo',
-                        'fortitude','vontade',]);
-        */
-
         $status = auth()->user()->personas()->create($request->all());
         return response()->success($status);
     }
@@ -56,7 +50,7 @@ class PersonaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SavePersona $request, $id)
     {
         $persona = Persona::findOrFail($id);
         $status = $persona->update($request->all());

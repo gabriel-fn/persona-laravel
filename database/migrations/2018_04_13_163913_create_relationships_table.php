@@ -17,20 +17,18 @@ class CreateRelationshipsTable extends Migration
             $table->unsignedInteger('persona_id');
             $table->unsignedInteger('pericia_id');
             $table->unsignedInteger('graduacao');
-            $table->timestamps();
 
-            $table->foreign('persona_id')->references('id')->on('personas');
-            $table->foreign('pericia_id')->references('id')->on('pericias');
+            $table->foreign('persona_id')->references('id')->on('personas')->onDelete('cascade');
+            $table->foreign('pericia_id')->references('id')->on('pericias')->onDelete('cascade');
         });
 
         Schema::create('persona_feito', function (Blueprint $table) {
             $table->unsignedInteger('persona_id');
             $table->unsignedInteger('feito_id');
             $table->unsignedInteger('graduacao');
-            $table->timestamps();
 
-            $table->foreign('persona_id')->references('id')->on('personas');
-            $table->foreign('feito_id')->references('id')->on('feitos');
+            $table->foreign('persona_id')->references('id')->on('personas')->onDelete('cascade');
+            $table->foreign('feito_id')->references('id')->on('feitos')->onDelete('cascade');
         });
     }
 
