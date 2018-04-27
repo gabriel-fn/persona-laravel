@@ -15,8 +15,8 @@ class CreateFeitosTable extends Migration
     {
         Schema::create('feitos', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome');
-            $table->integer('graduacao_maxima');
+            $table->string('label');
+            $table->integer('max');
             $table->timestamps();
         });
     }

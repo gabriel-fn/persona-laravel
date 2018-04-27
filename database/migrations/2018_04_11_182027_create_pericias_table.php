@@ -15,8 +15,8 @@ class CreatePericiasTable extends Migration
     {
         Schema::create('pericias', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nome');
-            $table->string('habilidade_chave');
+            $table->string('label');
+            $table->string('abilityKey');
             $table->timestamps();
         });
     }

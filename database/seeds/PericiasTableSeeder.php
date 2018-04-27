@@ -12,35 +12,35 @@ class PericiasTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(Pericia::class)->create(['nome'=>'Acrobacia','habilidade_chave'=>'destreza']);
-        factory(Pericia::class)->create(['nome'=>'Arte da Fulga','habilidade_chave'=>'destreza']);
-        factory(Pericia::class)->create(['nome'=>'Blefar','habilidade_chave'=>'carisma']);
-        factory(Pericia::class)->create(['nome'=>'Cavalgar','habilidade_chave'=>'destreza']);
-        factory(Pericia::class)->create(['nome'=>'Computadores','habilidade_chave'=>'inteligencia']);
-        factory(Pericia::class)->create(['nome'=>'Concentração','habilidade_chave'=>'sabedoria']);
-        factory(Pericia::class)->create(['nome'=>'Conhecimento','habilidade_chave'=>'inteligencia']);
-        factory(Pericia::class)->create(['nome'=>'Desarmar Dispositivo','habilidade_chave'=>'inteligencia']);
-        factory(Pericia::class)->create(['nome'=>'Diplomacia','habilidade_chave'=>'carisma']);
-        factory(Pericia::class)->create(['nome'=>'Dirigir','habilidade_chave'=>'destreza']);
-        factory(Pericia::class)->create(['nome'=>'Disfarce','habilidade_chave'=>'carisma']);
-        factory(Pericia::class)->create(['nome'=>'Escalar','habilidade_chave'=>'forca']);
-        factory(Pericia::class)->create(['nome'=>'Furtividade','habilidade_chave'=>'destreza']);
-        factory(Pericia::class)->create(['nome'=>'Idiomas','habilidade_chave'=>'']);
-        factory(Pericia::class)->create(['nome'=>'Intimidar','habilidade_chave'=>'carisma']);
-        factory(Pericia::class)->create(['nome'=>'Intuir Intenção','habilidade_chave'=>'sabedoria']);
-        factory(Pericia::class)->create(['nome'=>'Investigar','habilidade_chave'=>'inteligencia']);
-        factory(Pericia::class)->create(['nome'=>'Lidar com Animais','habilidade_chave'=>'carisma']);
-        factory(Pericia::class)->create(['nome'=>'Medicina','habilidade_chave'=>'sabedoria']);
-        factory(Pericia::class)->create(['nome'=>'Nadar','habilidade_chave'=>'forca']);
-        factory(Pericia::class)->create(['nome'=>'Notar','habilidade_chave'=>'sabedoria']);
-        factory(Pericia::class)->create(['nome'=>'Obter Informação','habilidade_chave'=>'carisma']);
-        factory(Pericia::class)->create(['nome'=>'Ofício','habilidade_chave'=>'inteligencia']);
-        factory(Pericia::class)->create(['nome'=>'Performance','habilidade_chave'=>'carisma']);
-        factory(Pericia::class)->create(['nome'=>'Pilotar','habilidade_chave'=>'destreza']);
-        factory(Pericia::class)->create(['nome'=>'Prestidigitação','habilidade_chave'=>'destreza']);
-        factory(Pericia::class)->create(['nome'=>'Procurar','habilidade_chave'=>'inteligencia']);
-        factory(Pericia::class)->create(['nome'=>'Profissão','habilidade_chave'=>'sabedoria']);
-        factory(Pericia::class)->create(['nome'=>'Sobrevivência','habilidade_chave'=>'sabedoria']);
+        factory(Pericia::class)->create(['label'=>'Acrobacia','abilityKey'=>'destreza']);
+        factory(Pericia::class)->create(['label'=>'Arte da Fulga','abilityKey'=>'destreza']);
+        factory(Pericia::class)->create(['label'=>'Blefar','abilityKey'=>'carisma']);
+        factory(Pericia::class)->create(['label'=>'Cavalgar','abilityKey'=>'destreza']);
+        factory(Pericia::class)->create(['label'=>'Computadores','abilityKey'=>'inteligencia']);
+        factory(Pericia::class)->create(['label'=>'Concentração','abilityKey'=>'sabedoria']);
+        factory(Pericia::class)->create(['label'=>'Conhecimento','abilityKey'=>'inteligencia']);
+        factory(Pericia::class)->create(['label'=>'Desarmar Dispositivo','abilityKey'=>'inteligencia']);
+        factory(Pericia::class)->create(['label'=>'Diplomacia','abilityKey'=>'carisma']);
+        factory(Pericia::class)->create(['label'=>'Dirigir','abilityKey'=>'destreza']);
+        factory(Pericia::class)->create(['label'=>'Disfarce','abilityKey'=>'carisma']);
+        factory(Pericia::class)->create(['label'=>'Escalar','abilityKey'=>'forca']);
+        factory(Pericia::class)->create(['label'=>'Furtividade','abilityKey'=>'destreza']);
+        factory(Pericia::class)->create(['label'=>'Idiomas','abilityKey'=>'']);
+        factory(Pericia::class)->create(['label'=>'Intimidar','abilityKey'=>'carisma']);
+        factory(Pericia::class)->create(['label'=>'Intuir Intenção','abilityKey'=>'sabedoria']);
+        factory(Pericia::class)->create(['label'=>'Investigar','abilityKey'=>'inteligencia']);
+        factory(Pericia::class)->create(['label'=>'Lidar com Animais','abilityKey'=>'carisma']);
+        factory(Pericia::class)->create(['label'=>'Medicina','abilityKey'=>'sabedoria']);
+        factory(Pericia::class)->create(['label'=>'Nadar','abilityKey'=>'forca']);
+        factory(Pericia::class)->create(['label'=>'Notar','abilityKey'=>'sabedoria']);
+        factory(Pericia::class)->create(['label'=>'Obter Informação','abilityKey'=>'carisma']);
+        factory(Pericia::class)->create(['label'=>'Ofício','abilityKey'=>'inteligencia']);
+        factory(Pericia::class)->create(['label'=>'Performance','abilityKey'=>'carisma']);
+        factory(Pericia::class)->create(['label'=>'Pilotar','abilityKey'=>'destreza']);
+        factory(Pericia::class)->create(['label'=>'Prestidigitação','abilityKey'=>'destreza']);
+        factory(Pericia::class)->create(['label'=>'Procurar','abilityKey'=>'inteligencia']);
+        factory(Pericia::class)->create(['label'=>'Profissão','abilityKey'=>'sabedoria']);
+        factory(Pericia::class)->create(['label'=>'Sobrevivência','abilityKey'=>'sabedoria']);
 
     }
 }

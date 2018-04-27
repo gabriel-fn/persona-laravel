@@ -19,13 +19,13 @@ class Persona extends Model
     {
         return $this->belongsToMany('App\Pericia', 'persona_pericia')
         ->as('info')
-        ->withPivot('graduacao');
+        ->withPivot('points');
     }
 
     public function feitos()
     {
         return $this->belongsToMany('App\Feito', 'persona_feito')
         ->as('info')
-        ->withPivot('graduacao');
+        ->withPivot('points');
     }
 }

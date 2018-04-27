@@ -16,7 +16,7 @@ class CreateRelationshipsTable extends Migration
         Schema::create('persona_pericia', function (Blueprint $table) {
             $table->unsignedInteger('persona_id');
             $table->unsignedInteger('pericia_id');
-            $table->unsignedInteger('graduacao');
+            $table->unsignedInteger('points');
 
             $table->foreign('persona_id')->references('id')->on('personas')->onDelete('cascade');
             $table->foreign('pericia_id')->references('id')->on('pericias')->onDelete('cascade');
@@ -25,7 +25,7 @@ class CreateRelationshipsTable extends Migration
         Schema::create('persona_feito', function (Blueprint $table) {
             $table->unsignedInteger('persona_id');
             $table->unsignedInteger('feito_id');
-            $table->unsignedInteger('graduacao');
+            $table->unsignedInteger('points');
 
             $table->foreign('persona_id')->references('id')->on('personas')->onDelete('cascade');
             $table->foreign('feito_id')->references('id')->on('feitos')->onDelete('cascade');

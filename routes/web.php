@@ -24,4 +24,10 @@ Route::group(['namespace' => 'API'], function () {
     Route::get('/personas/teste/{id}', function ($id) {
         return App\Persona::with(['pericias', 'feitos'])->findOrFail($id);
     });
+    Route::get('/personas/feitos', function () {
+        return App\Feito::all();
+    });
+    Route::get('/personas/pericias', function () {
+        return App\Pericia::all();
+    });
 });
