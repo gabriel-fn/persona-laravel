@@ -24,7 +24,7 @@ class SavePersona extends FormRequest
     public function rules()
     {
         return [
-            'nome' =>'required|min:2|max:25',
+            'nome' =>'required|min:1|max:25',
             'np' =>'required|integer',
             'forca' =>'required|integer',
             'destreza' =>'required|integer',

@@ -17,6 +17,7 @@ class CreateFeitosTable extends Migration
             $table->increments('id');
             $table->string('label');
             $table->integer('max');
+            $table->integer('min');
             $table->timestamps();
         });
     }

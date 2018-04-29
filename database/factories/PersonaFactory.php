@@ -25,7 +25,6 @@ $factory->define(Persona::class, function (Faker $faker) {
         'resistencia' => rand(0, 5),
         'reflexo' => rand(0, 5),
         'fortitude' => rand(0, 5),
-        'vontade' => rand(0, 5),
-
+        'vontade' => rand(0, 5)
     ];
 });

@@ -21,8 +21,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 
 Route::group(['namespace' => 'API'], function () {
-    Route::get('/personas/teste/{id}', function ($id) {
-        return App\Persona::with(['pericias', 'feitos'])->findOrFail($id);
+    Route::get('/personas', function () {
+        return App\Persona::all();
+    });
+    Route::get('/personas/{id}', function ($id) {
+        return App\Persona::with(['periciasPersona', 'feitosPersona'])->findOrFail($id);
     });
     Route::get('/personas/feitos', function () {
         return App\Feito::all();

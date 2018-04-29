@@ -28,8 +28,17 @@ class PersonaController extends Controller
      */
     public function store(SavePersona $request)
     {   
-        $status = auth()->user()->personas()->create($request->all());
-        return response()->success($status);
+        $persona = auth()->user()->personas()->create($request->except('feitos', 'pericias'));
+        
+        if ($request->has('feitos')) {
+            $persona->feitosSync($request->feitos);
+        }
+
+        if ($request->has('pericias')) {
+            $persona->periciasSync($request->pericias);
+        }
+        
+        return response()->success($persona);
     }
 
     /**
@@ -40,7 +49,7 @@ class PersonaController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->sucess(Persona::findOrFail($id));
     }
 
     /**
@@ -53,8 +62,17 @@ class PersonaController extends Controller
     public function update(SavePersona $request, $id)
     {
         $persona = Persona::findOrFail($id);
-        $status = $persona->update($request->all());
-        return response()->success($status);
+        $persona->update($request->except('feitos', 'pericias'));
+
+        if ($request->has('feitos')) {
+            $persona->feitosSync($request->feitos);
+        }
+
+        if ($request->has('pericias')) {
+            $persona->periciasSync($request->pericias);
+        }
+
+        return response()->success($persona);
     }
 
     /**

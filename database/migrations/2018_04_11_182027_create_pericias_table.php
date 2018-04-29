@@ -16,7 +16,9 @@ class CreatePericiasTable extends Migration
         Schema::create('pericias', function (Blueprint $table) {
             $table->increments('id');
             $table->string('label');
-            $table->string('abilityKey');
+            $table->string('bonus_key');
+            $table->integer('max');
+            $table->integer('min');
             $table->timestamps();
         });
     }

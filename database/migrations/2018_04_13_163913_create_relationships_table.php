@@ -13,7 +13,7 @@ class CreateRelationshipsTable extends Migration
      */
     public function up()
     {
-        Schema::create('persona_pericia', function (Blueprint $table) {
+        Schema::create('pericia_persona', function (Blueprint $table) {
             $table->unsignedInteger('persona_id');
             $table->unsignedInteger('pericia_id');
             $table->unsignedInteger('points');
@@ -22,7 +22,7 @@ class CreateRelationshipsTable extends Migration
             $table->foreign('pericia_id')->references('id')->on('pericias')->onDelete('cascade');
         });
 
-        Schema::create('persona_feito', function (Blueprint $table) {
+        Schema::create('feito_persona', function (Blueprint $table) {
             $table->unsignedInteger('persona_id');
             $table->unsignedInteger('feito_id');
             $table->unsignedInteger('points');
@@ -39,7 +39,7 @@ class CreateRelationshipsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('persona_pericia');
-        Schema::dropIfExists('persona_feito');
+        Schema::dropIfExists('pericia_persona');
+        Schema::dropIfExists('feito_persona');
     }
 }
