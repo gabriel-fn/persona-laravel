@@ -19,18 +19,18 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/personas/feitos', function () {
+    return App\Feito::all();
+});
 
-Route::group(['namespace' => 'API'], function () {
-    Route::get('/personas', function () {
-        return App\Persona::all();
-    });
-    Route::get('/personas/{id}', function ($id) {
-        return App\Persona::with(['periciasPersona', 'feitosPersona'])->findOrFail($id);
-    });
-    Route::get('/personas/feitos', function () {
-        return App\Feito::all();
-    });
-    Route::get('/personas/pericias', function () {
-        return App\Pericia::all();
-    });
+Route::get('/personas/pericias', function () {
+    return App\Pericia::all();
+});
+
+Route::get('/personas', function () {
+    return App\Persona::all();
+});
+
+Route::get('/personas/{id}', function ($id) {
+    return App\Persona::with(['periciasPersona', 'feitosPersona'])->findOrFail($id);
 });
