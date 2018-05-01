@@ -19,9 +19,9 @@ class Persona extends Model
         return $this->periciasPersona->map(function ($pericia) {
             $id = $pericia->id;
             $label = $pericia->label;
-            $bonusKeys = $pericia->bonus_key;
+            $bonusKey = $pericia->bonus_key;
             $points = $pericia->info->points;
-            return compact(['id', 'label', 'bonusKeys', 'points']);
+            return compact(['id', 'label', 'bonusKey', 'points']);
         }); 
     }
 
