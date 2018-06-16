@@ -16,15 +16,15 @@ class PersonasTableSeeder extends Seeder
       
         factory(Persona::class, 5)->create()->each(function ($persona){
             $persona->periciasPersona()->sync([
-                rand(1, 5) => ['points' => 1],
-                rand(6, 10) => ['points' => 1],
-                rand(11, 15) => ['points' => 1]
+                rand(1, 5) => ['graduacao' => 1],
+                rand(6, 10) => ['graduacao' => 1],
+                rand(11, 15) => ['graduacao' => 1]
             ]);
 
             $persona->feitosPersona()->sync([
-                rand(1, 5) => ['points' => 1],
-                rand(6, 10) => ['points' => 1],
-                rand(11, 15) => ['points' => 1]
+                rand(1, 5) => ['graduacao' => 1],
+                rand(6, 10) => ['graduacao' => 1],
+                rand(11, 15) => ['graduacao' => 1]
             ]);
         });
     }

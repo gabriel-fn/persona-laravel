@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFeitosTable extends Migration
+class CreateExtrasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateFeitosTable extends Migration
      */
     public function up()
     {
-        Schema::create('feitos', function (Blueprint $table) {
+        Schema::create('extras', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nome');
-            $table->integer('graduacao_min');
-            $table->integer('graduacao_max');
+            $table->integer('modificador_min');
+            $table->integer('modificador_max');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateFeitosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('feitos');
+        Schema::dropIfExists('extras');
     }
 }

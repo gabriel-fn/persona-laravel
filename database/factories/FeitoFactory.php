@@ -4,8 +4,8 @@ use Faker\Generator as Faker;
 
 $factory->define(App\Feito::class, function (Faker $faker) {
     return [
-        'label' => 'default',
-        'max' => 0,
-        'min' => 1
+        'nome' => 'default',
+        'graduacao_max' => 0,
+        'graduacao_min' => 1
     ];
 });
