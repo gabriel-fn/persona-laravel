@@ -18,10 +18,10 @@ class Persona extends Model
     {
         return $this->periciasPersona->map(function ($pericia) {
             $id = $pericia->id;
-            $label = $pericia->label;
-            $bonusKey = $pericia->bonus_key;
-            $points = $pericia->info->points;
-            return compact(['id', 'label', 'bonusKey', 'points']);
+            $nome = $pericia->nome;
+            $habilidade_chave = $pericia->habilidade_chave;
+            $graduacao = $pericia->info->graduacao;
+            return compact(['id', 'nome', 'habilidade_chave', 'graduacao']);
         }); 
     }
 
@@ -29,9 +29,9 @@ class Persona extends Model
     {
         return $this->feitosPersona->map(function ($feito) {
             $id = $feito->id;
-            $label = $feito->label;
-            $points = $feito->info->points;
-            return compact(['id', 'label', 'points']);
+            $nome = $feito->nome;
+            $graduacao = $feito->info->graduacao;
+            return compact(['id', 'nome', 'graduacao']);
         }); 
     }
 
@@ -39,7 +39,7 @@ class Persona extends Model
     {
         $pericias_persona = array();
         foreach ($pericias as $pericia) {
-            $pericias_persona[$pericia['id']] = ['points' => $pericia['points']];
+            $pericias_persona[$pericia['id']] = ['graduacao' => $pericia['graduacao']];
         }
         $this->periciasPersona()->sync($pericias_persona);
     }
@@ -48,7 +48,7 @@ class Persona extends Model
     {
         $feitos_persona = array();
         foreach ($feitos as $feito) {
-            $feitos_persona[$feito['id']] = ['points' => $feito['points']];
+            $feitos_persona[$feito['id']] = ['graduacao' => $feito['graduacao']];
         }
         $this->feitosPersona()->sync($feitos_persona);
     }
@@ -62,13 +62,13 @@ class Persona extends Model
     {
         return $this->belongsToMany('App\Pericia', 'pericia_persona')
         ->as('info')
-        ->withPivot('points');
+        ->withPivot('graduacao');
     }
 
     public function feitosPersona()
     {
         return $this->belongsToMany('App\Feito', 'feito_persona')
         ->as('info')
-        ->withPivot('points');
+        ->withPivot('graduacao');
     }
 }

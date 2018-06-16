@@ -14,6 +14,6 @@ class Pericia extends Model
     {
         return $this->belongsToMany('App\Persona', 'pericia_persona')
         ->as('info')
-        ->withPivot('points');
+        ->withPivot('graduacao');
     }
 }

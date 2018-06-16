@@ -14,6 +14,6 @@ class Feito extends Model
     {
         return $this->belongsToMany('App\Persona', 'feito_persona')
         ->as('info')
-        ->withPivot('points');
+        ->withPivot('graduacao');
     }
 }
