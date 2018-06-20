@@ -28,7 +28,7 @@ class PersonaController extends Controller
      */
     public function store(SavePersona $request)
     {   
-        $persona = auth()->user()->personas()->create($request->except('feitos', 'pericias'));
+        $persona = auth()->user()->personas()->create($request->except('feitos', 'pericias', 'poderes'));
         
         if ($request->has('feitos')) {
             $persona->feitosSync($request->feitos);
@@ -62,7 +62,7 @@ class PersonaController extends Controller
     public function update(SavePersona $request, $id)
     {
         $persona = Persona::findOrFail($id);
-        $persona->update($request->except('feitos', 'pericias'));
+        $persona->update($request->except('feitos', 'pericias', 'poderes'));
 
         if ($request->has('feitos')) {
             $persona->feitosSync($request->feitos);

@@ -32,5 +32,11 @@ Route::get('/personas', function () {
 });
 
 Route::get('/personas/{id}', function ($id) {
-    return App\Persona::with(['periciasPersona', 'feitosPersona'])->findOrFail($id);
+    return App\Persona::findOrFail($id);
+});
+
+Route::get('/personas/detach/{id}', function ($id) {
+    $persona = App\Persona::findOrFail($id);
+    $persona->poderesPersona()->detach();
+    return $persona;
 });

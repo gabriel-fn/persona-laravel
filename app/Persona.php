@@ -10,9 +10,9 @@ class Persona extends Model
         'id', 'created_at', 'updated_at'
     ];
 
-    protected $hidden = ['periciasPersona', 'feitosPersona']; 
+    protected $hidden = ['periciasPersona', 'feitosPersona', 'poderesPersona', 'poderPersona']; 
 
-    protected $appends = ['pericias', 'feitos'];
+    protected $appends = ['pericias', 'feitos', 'poderes'];
 
     public function getPericiasAttribute() 
     {
@@ -35,6 +35,11 @@ class Persona extends Model
         }); 
     }
 
+    public function getPoderesAttribute() 
+    {
+        return $this->poderPersona;
+    }
+
     public function periciasSync($pericias) 
     {
         $pericias_persona = array();
@@ -53,9 +58,11 @@ class Persona extends Model
         $this->feitosPersona()->sync($feitos_persona);
     }
 
-    public function user()
+    public function poderesSync($poderes) 
     {
-        return $this->belongsTo('App\User');
+        $poderes_persona = array();
+
+        $this->poderesPersona()->detach();
     }
 
     public function periciasPersona()
@@ -70,5 +77,22 @@ class Persona extends Model
         return $this->belongsToMany('App\Feito', 'feito_persona')
         ->as('info')
         ->withPivot('graduacao');
+    }
+
+    public function poderesPersona()
+    {
+        return $this->belongsToMany('App\Poder', 'poder_persona')
+        ->as('info')
+        ->withPivot(['graduacao', 'custo']);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+    public function poderPersona()
+    {
+        return $this->hasMany('App\PoderPersona');
     }
 }

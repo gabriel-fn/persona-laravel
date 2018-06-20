@@ -30,6 +30,24 @@ class CreateRelationshipsTable extends Migration
             $table->foreign('persona_id')->references('id')->on('personas')->onDelete('cascade');
             $table->foreign('feito_id')->references('id')->on('feitos')->onDelete('cascade');
         });
+
+        Schema::create('extra_persona', function (Blueprint $table) {
+            $table->unsignedInteger('poder_persona_id');
+            $table->unsignedInteger('extra_id');
+            $table->unsignedInteger('modificador');
+
+            $table->foreign('poder_persona_id')->references('id')->on('poder_persona')->onDelete('cascade');
+            $table->foreign('extra_id')->references('id')->on('extras')->onDelete('cascade');
+        });
+
+        Schema::create('falha_persona', function (Blueprint $table) {
+            $table->unsignedInteger('poder_persona_id');
+            $table->unsignedInteger('falha_id');
+            $table->unsignedInteger('modificador');
+
+            $table->foreign('poder_persona_id')->references('id')->on('poder_persona')->onDelete('cascade');
+            $table->foreign('falha_id')->references('id')->on('falhas')->onDelete('cascade');
+        });
     }
 
     /**
@@ -41,5 +59,7 @@ class CreateRelationshipsTable extends Migration
     {
         Schema::dropIfExists('pericia_persona');
         Schema::dropIfExists('feito_persona');
+        Schema::dropIfExists('extra_persona');
+        Schema::dropIfExists('falha_persona');
     }
 }
