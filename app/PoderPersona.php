@@ -12,7 +12,22 @@ class PoderPersona extends Model
 
     protected $hidden = ['extrasPersona', 'falhasPersona', 'poderPersona', 'persona_id', 'created_at', 'updated_at'];
 
-    protected $appends = ['extras', 'falhas', 'info'];
+    protected $appends = ['nome', 'custo_min', 'custo_max', 'extras', 'falhas'];
+    
+    public function getNomeAttribute()
+    {
+        return $this->poderPersona->nome;
+    }
+
+    public function getCustoMinAttribute()
+    {
+        return $this->poderPersona->custo_min;
+    }
+
+    public function getCustoMaxAttribute()
+    {
+        return $this->poderPersona->custo_max;
+    }
 
     public function getExtrasAttribute() 
     {
@@ -36,11 +51,6 @@ class PoderPersona extends Model
             $modificador_max = $falha->modificador_max;
             return compact(['id', 'nome', 'modificador', 'modificador_min', 'modificador_max']);
         }); 
-    }
-
-    public function getInfoAttribute()
-    {
-        return $this->poderPersona;
     }
 
     public function extrasPersona()

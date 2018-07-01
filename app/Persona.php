@@ -60,9 +60,28 @@ class Persona extends Model
 
     public function poderesSync($poderes) 
     {
-        $poderes_persona = array();
-
         $this->poderesPersona()->detach();
+
+        foreach ($poderes as $poder) {
+            $poderPersona = factory(PoderPersona::class)->create([
+                'persona_id' => $this->id,
+                'poder_id' => $poder['poder_id'],
+                'graduacao' => $poder['graduacao'],
+                'custo' => $poder['custo'],
+            ]);
+
+            $extras_persona = array();
+            foreach ($poder['extras'] as $extra) {
+                $extras_persona[$extra['id']] = ['modificador' => $extra['modificador']];
+            }
+            $poderPersona->extrasPersona()->attach($extras_persona);
+
+            $falhas_persona = array();
+            foreach ($poder['falhas'] as $falha) {
+                $falhas_persona[$falha['id']] = ['modificador' => $falha['modificador']];
+            }
+            $poderPersona->falhasPersona()->attach($falhas_persona);
+        }
     }
 
     public function periciasPersona()

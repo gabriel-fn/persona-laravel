@@ -27,6 +27,18 @@ Route::get('/personas/pericias', function () {
     return App\Pericia::all();
 });
 
+Route::get('/personas/poderes', function () {
+    return App\Poder::all();
+});
+
+Route::get('/personas/extras', function () {
+    return App\Extra::all();
+});
+
+Route::get('/personas/falhas', function () {
+    return App\Falha::all();
+});
+
 Route::get('/personas', function () {
     return App\Persona::all();
 });

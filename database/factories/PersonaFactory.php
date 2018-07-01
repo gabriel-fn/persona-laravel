@@ -7,7 +7,7 @@ $factory->define(Persona::class, function (Faker $faker) {
     return [
         'user_id' => rand(1, 2),
         'nome' => $faker->name,
-        'np' => rand(0, 20),
+        'np' => rand(1, 20),
 
         'forca' => rand(0, 20),
         'destreza' => rand(0, 20),

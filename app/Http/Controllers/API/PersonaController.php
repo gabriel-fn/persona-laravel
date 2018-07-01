@@ -37,6 +37,10 @@ class PersonaController extends Controller
         if ($request->has('pericias')) {
             $persona->periciasSync($request->pericias);
         }
+
+        if ($request->has('poderes')) {
+            $persona->poderesSync($request->poderes);
+        }
         
         return response()->success($persona);
     }
@@ -70,6 +74,10 @@ class PersonaController extends Controller
 
         if ($request->has('pericias')) {
             $persona->periciasSync($request->pericias);
+        }
+
+        if ($request->has('poderes')) {
+            $persona->poderesSync($request->poderes);
         }
 
         return response()->success($persona);

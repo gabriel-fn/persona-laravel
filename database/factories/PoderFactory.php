@@ -17,8 +17,6 @@ $factory->define(App\Poder::class, function (Faker $faker) {
 
 $factory->define(App\PoderPersona::class, function (Faker $faker) {
     return [
-        'poder_id' => rand(1,100),
-        'graduacao' => 1,
-        'custo' => 1,
+        'graduacao' => rand(1,20),
     ];
 });
