@@ -28,7 +28,7 @@ class PersonaController extends Controller
      */
     public function store(SavePersona $request)
     {   
-        $persona = auth()->user()->personas()->create($request->except('feitos', 'pericias', 'poderes'));
+        $persona = auth()->user()->personas()->create($request->except('feitos', 'pericias', 'desvantagens', 'poderes'));
         
         if ($request->has('feitos')) {
             $persona->feitosSync($request->feitos);
@@ -36,6 +36,10 @@ class PersonaController extends Controller
 
         if ($request->has('pericias')) {
             $persona->periciasSync($request->pericias);
+        }
+
+        if ($request->has('desvantagens')) {
+            $persona->desvantagensSync($request->desvantagens);
         }
 
         if ($request->has('poderes')) {
@@ -66,7 +70,7 @@ class PersonaController extends Controller
     public function update(SavePersona $request, $id)
     {
         $persona = Persona::findOrFail($id);
-        $persona->update($request->except('feitos', 'pericias', 'poderes'));
+        $persona->update($request->except('feitos', 'pericias', 'desvantagens', 'poderes'));
 
         if ($request->has('feitos')) {
             $persona->feitosSync($request->feitos);
@@ -74,6 +78,10 @@ class PersonaController extends Controller
 
         if ($request->has('pericias')) {
             $persona->periciasSync($request->pericias);
+        }
+
+        if ($request->has('desvantagens')) {
+            $persona->desvantagensSync($request->desvantagens);
         }
 
         if ($request->has('poderes')) {

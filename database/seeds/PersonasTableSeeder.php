@@ -26,6 +26,12 @@ class PersonasTableSeeder extends Seeder
                 rand(6, 10) => ['graduacao' => 1],
                 rand(11, 15) => ['graduacao' => 1]
             ]);
+
+            $persona->desvantagensPersona()->sync([
+                rand(1, 4) => ['graduacao' => 1],
+                rand(6, 8) => ['graduacao' => 1],
+                rand(9, 11) => ['graduacao' => 1]
+            ]);
             
             $poder = App\Poder::find(rand(1,100));
             $poderPersona = factory(App\PoderPersona::class)->create([
@@ -50,6 +56,15 @@ class PersonasTableSeeder extends Seeder
 
             $falha = App\Falha::find(rand(7, 9));
             $poderPersona->falhasPersona()->attach([$falha->id => ['modificador'=>$falha->modificador_min]]);
+
+            $opcao = App\Opcao::find(rand(1, 3));
+            $poderPersona->opcoesPersona()->attach([$opcao->id => ['modificador'=>$opcao->modificador_min]]);
+
+            $opcao = App\Opcao::find(rand(4, 6));
+            $poderPersona->opcoesPersona()->attach([$opcao->id => ['modificador'=>$opcao->modificador_min]]);
+
+            $opcao = App\Opcao::find(rand(7, 9));
+            $poderPersona->opcoesPersona()->attach([$opcao->id => ['modificador'=>$opcao->modificador_min]]);
 
             $persona->poderPersona()->save($poderPersona);
 

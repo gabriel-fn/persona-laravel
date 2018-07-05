@@ -10,9 +10,9 @@ class Persona extends Model
         'id', 'created_at', 'updated_at'
     ];
 
-    protected $hidden = ['periciasPersona', 'feitosPersona', 'poderesPersona', 'poderPersona']; 
+    protected $hidden = ['periciasPersona', 'feitosPersona', 'desvantagensPersona', 'poderesPersona', 'poderPersona']; 
 
-    protected $appends = ['pericias', 'feitos', 'poderes'];
+    protected $appends = ['pericias', 'feitos', 'desvantagens', 'poderes'];
 
     public function getPericiasAttribute() 
     {
@@ -31,6 +31,16 @@ class Persona extends Model
             $id = $feito->id;
             $nome = $feito->nome;
             $graduacao = $feito->info->graduacao;
+            return compact(['id', 'nome', 'graduacao']);
+        }); 
+    }
+
+    public function getDesvantagensAttribute() 
+    {
+        return $this->desvantagensPersona->map(function ($desvantagem) {
+            $id = $desvantagem->id;
+            $nome = $desvantagem->nome;
+            $graduacao = $desvantagem->info->graduacao;
             return compact(['id', 'nome', 'graduacao']);
         }); 
     }
@@ -58,6 +68,15 @@ class Persona extends Model
         $this->feitosPersona()->sync($feitos_persona);
     }
 
+    public function desvantagensSync($desvantagens) 
+    {
+        $desvantagens_persona = array();
+        foreach ($desvantagens as $desvantagem) {
+            $desvantagens_persona[$desvantagem['id']] = ['graduacao' => $desvantagem['graduacao']];
+        }
+        $this->desvantagensPersona()->sync($desvantagens_persona);
+    }
+
     public function poderesSync($poderes) 
     {
         $this->poderesPersona()->detach();
@@ -81,6 +100,12 @@ class Persona extends Model
                 $falhas_persona[$falha['id']] = ['modificador' => $falha['modificador']];
             }
             $poderPersona->falhasPersona()->attach($falhas_persona);
+
+            $opcoes_persona = array();
+            foreach ($poder['opcoes'] as $opcao) {
+                $opcoes_persona[$opcao['id']] = ['modificador' => $opcao['modificador']];
+            }
+            $poderPersona->opcoesPersona()->attach($opcoes_persona);
         }
     }
 
@@ -94,6 +119,13 @@ class Persona extends Model
     public function feitosPersona()
     {
         return $this->belongsToMany('App\Feito', 'feito_persona')
+        ->as('info')
+        ->withPivot('graduacao');
+    }
+
+    public function desvantagensPersona()
+    {
+        return $this->belongsToMany('App\Desvantagem', 'desvantagem_persona')
         ->as('info')
         ->withPivot('graduacao');
     }

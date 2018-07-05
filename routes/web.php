@@ -27,6 +27,10 @@ Route::get('/personas/pericias', function () {
     return App\Pericia::all();
 });
 
+Route::get('/personas/desvantagens', function () {
+    return App\Desvantagem::all();
+});
+
 Route::get('/personas/poderes', function () {
     return App\Poder::all();
 });
@@ -39,16 +43,14 @@ Route::get('/personas/falhas', function () {
     return App\Falha::all();
 });
 
+Route::get('/personas/opcoes', function () {
+    return App\Opcao::all();
+});
+
 Route::get('/personas', function () {
     return App\Persona::all();
 });
 
 Route::get('/personas/{id}', function ($id) {
     return App\Persona::findOrFail($id);
-});
-
-Route::get('/personas/detach/{id}', function ($id) {
-    $persona = App\Persona::findOrFail($id);
-    $persona->poderesPersona()->detach();
-    return $persona;
 });

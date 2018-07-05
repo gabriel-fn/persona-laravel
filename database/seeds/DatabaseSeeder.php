@@ -15,9 +15,11 @@ class DatabaseSeeder extends Seeder
             UsersTableSeeder::class,
             PoderesTableSeeder::class,
             PericiasTableSeeder::class,
+            FeitosTableSeeder::class,
+            DesvantagensTableSeeder::class,
             ExtrasTableSeeder::class,
             FalhasTableSeeder::class,
-            FeitosTableSeeder::class,
+            OpcoesTableSeeder::class,
             PersonasTableSeeder::class,
         ]);
     }
