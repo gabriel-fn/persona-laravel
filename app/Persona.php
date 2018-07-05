@@ -106,6 +106,12 @@ class Persona extends Model
                 $opcoes_persona[$opcao['id']] = ['modificador' => $opcao['modificador']];
             }
             $poderPersona->opcoesPersona()->attach($opcoes_persona);
+
+            $poderes_alternativos = array();
+            foreach ($poder['poderes_alternativos'] as $poder_alternativo) {
+                $poderes_alternativos[$poder_alternativo['id']] = ['modificador' => $poder_alternativo['modificador']];
+            }
+            $poderPersona->poderesAlternativosPersona()->attach($poderes_alternativos);
         }
     }
 

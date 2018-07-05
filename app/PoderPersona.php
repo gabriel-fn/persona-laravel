@@ -10,9 +10,9 @@ class PoderPersona extends Model
 
     protected $guarded = ['id'];
 
-    protected $hidden = ['extrasPersona', 'falhasPersona', 'opcoesPersona', 'poderPersona', 'persona_id', 'created_at', 'updated_at'];
+    protected $hidden = ['extrasPersona', 'falhasPersona', 'opcoesPersona', 'poderesAlternativosPersona', 'poderPersona', 'persona_id', 'created_at', 'updated_at'];
 
-    protected $appends = ['nome', 'custo_min', 'custo_max', 'extras', 'falhas', 'opcoes'];
+    protected $appends = ['nome', 'custo_min', 'custo_max', 'extras', 'falhas', 'opcoes', 'poderes_alternativos'];
     
     public function getNomeAttribute()
     {
@@ -65,6 +65,18 @@ class PoderPersona extends Model
         }); 
     }
 
+    public function getPoderesAlternativosAttribute() 
+    {
+        return $this->poderesAlternativosPersona->map(function ($poder_alternativo) {
+            $id = $poder_alternativo->id;
+            $nome = $poder_alternativo->nome;
+            $modificador = $poder_alternativo->info->modificador;
+            $modificador_min = 1;
+            $modificador_max = 2;
+            return compact(['id', 'nome', 'modificador', 'modificador_min', 'modificador_max']);
+        }); 
+    }
+
     public function extrasPersona()
     {
         return $this->belongsToMany('App\Extra', 'extra_persona')
@@ -82,6 +94,13 @@ class PoderPersona extends Model
     public function opcoesPersona()
     {
         return $this->belongsToMany('App\Opcao', 'opcao_persona')
+        ->as('info')
+        ->withPivot('modificador');
+    }
+
+    public function poderesAlternativosPersona()
+    {
+        return $this->belongsToMany('App\Poder', 'poder_poder')
         ->as('info')
         ->withPivot('modificador');
     }

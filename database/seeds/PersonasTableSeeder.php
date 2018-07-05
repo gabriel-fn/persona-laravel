@@ -66,6 +66,12 @@ class PersonasTableSeeder extends Seeder
             $opcao = App\Opcao::find(rand(7, 9));
             $poderPersona->opcoesPersona()->attach([$opcao->id => ['modificador'=>$opcao->modificador_min]]);
 
+            $poderPersona->poderesAlternativosPersona()->sync([
+                rand(1, 30) => ['modificador' => rand(1, 2)],
+                rand(31, 60) => ['modificador' => rand(1, 2)],
+                rand(61, 90) => ['modificador' => rand(1, 2)]
+            ]);
+
             $persona->poderPersona()->save($poderPersona);
 
         });

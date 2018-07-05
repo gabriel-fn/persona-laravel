@@ -66,6 +66,15 @@ class CreateRelationshipsTable extends Migration
             $table->foreign('poder_persona_id')->references('id')->on('poder_persona')->onDelete('cascade');
             $table->foreign('opcao_id')->references('id')->on('opcoes')->onDelete('cascade');
         });
+
+        Schema::create('poder_poder', function (Blueprint $table) {
+            $table->unsignedInteger('poder_persona_id');
+            $table->unsignedInteger('poder_id');
+            $table->unsignedInteger('modificador');
+
+            $table->foreign('poder_persona_id')->references('id')->on('poder_persona')->onDelete('cascade');
+            $table->foreign('poder_id')->references('id')->on('poderes')->onDelete('cascade');
+        });
     }
 
     /**
@@ -81,5 +90,6 @@ class CreateRelationshipsTable extends Migration
         Schema::dropIfExists('extra_persona');
         Schema::dropIfExists('falha_persona');
         Schema::dropIfExists('opcao_persona');
+        Schema::dropIfExists('poder_poder');
     }
 }
