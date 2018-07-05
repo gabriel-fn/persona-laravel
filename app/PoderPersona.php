@@ -12,21 +12,16 @@ class PoderPersona extends Model
 
     protected $hidden = ['extrasPersona', 'falhasPersona', 'opcoesPersona', 'poderesAlternativosPersona', 'poderPersona', 'persona_id', 'created_at', 'updated_at'];
 
-    protected $appends = ['nome', 'custo_min', 'custo_max', 'extras', 'falhas', 'opcoes', 'poderes_alternativos'];
+    protected $appends = ['nome', 'custos', 'extras', 'falhas', 'opcoes', 'poderes_alternativos'];
     
     public function getNomeAttribute()
     {
         return $this->poderPersona->nome;
     }
 
-    public function getCustoMinAttribute()
+    public function getCustosAttribute()
     {
-        return $this->poderPersona->custo_min;
-    }
-
-    public function getCustoMaxAttribute()
-    {
-        return $this->poderPersona->custo_max;
+        return $this->poderPersona->custos;
     }
 
     public function getExtrasAttribute() 
@@ -35,9 +30,8 @@ class PoderPersona extends Model
             $id = $extra->id;
             $nome = $extra->nome;
             $modificador = $extra->info->modificador;
-            $modificador_min = $extra->modificador_min;
-            $modificador_max = $extra->modificador_max;
-            return compact(['id', 'nome', 'modificador', 'modificador_min', 'modificador_max']);
+            $modificadores = $extra->modificadores;
+            return compact(['id', 'nome', 'modificador', 'modificadores']);
         }); 
     }
 
@@ -47,9 +41,8 @@ class PoderPersona extends Model
             $id = $falha->id;
             $nome = $falha->nome;
             $modificador = $falha->info->modificador;
-            $modificador_min = $falha->modificador_min;
-            $modificador_max = $falha->modificador_max;
-            return compact(['id', 'nome', 'modificador', 'modificador_min', 'modificador_max']);
+            $modificadores = $falha->modificadores;
+            return compact(['id', 'nome', 'modificador', 'modificadores']);
         }); 
     }
 
@@ -59,9 +52,8 @@ class PoderPersona extends Model
             $id = $opcao->id;
             $nome = $opcao->nome;
             $modificador = $opcao->info->modificador;
-            $modificador_min = $opcao->modificador_min;
-            $modificador_max = $opcao->modificador_max;
-            return compact(['id', 'nome', 'modificador', 'modificador_min', 'modificador_max']);
+            $modificadores = $opcao->modificadores;
+            return compact(['id', 'nome', 'modificador', 'modificadores']);
         }); 
     }
 
@@ -71,9 +63,8 @@ class PoderPersona extends Model
             $id = $poder_alternativo->id;
             $nome = $poder_alternativo->nome;
             $modificador = $poder_alternativo->info->modificador;
-            $modificador_min = 1;
-            $modificador_max = 2;
-            return compact(['id', 'nome', 'modificador', 'modificador_min', 'modificador_max']);
+            $modificadores = [1,2];
+            return compact(['id', 'nome', 'modificador', 'modificadores']);
         }); 
     }
 
