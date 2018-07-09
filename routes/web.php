@@ -61,5 +61,5 @@ Route::get('/personas/pdf/{id}', function ($id) {
     $bonus = $info->bonusPoints();
     $total = $info->totalPoints();
     $pdf = PDF::loadView('pdf', compact('persona', 'bonus', 'total'));
-    return $pdf->download(str_slug($persona->nome, '-'));
+    return $pdf->download(str_slug($persona->nome, '-').'.pdf');
 });
