@@ -54,3 +54,12 @@ Route::get('/personas', function () {
 Route::get('/personas/{id}', function ($id) {
     return App\Persona::findOrFail($id);
 });
+
+Route::get('/personas/pdf/{id}', function ($id) {
+    $persona = App\Persona::findOrFail($id);
+    $info = new Classes\Persona($persona);
+    $bonus = $info->bonusPoints();
+    $total = $info->totalPoints();
+    $pdf = PDF::loadView('pdf', compact('persona', 'bonus', 'total'));
+    return $pdf->download(str_slug($persona->nome, '-'));
+});
