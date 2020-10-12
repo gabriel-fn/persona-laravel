@@ -57,7 +57,7 @@ class PersonaController extends Controller
      */
     public function show($id)
     {
-        return response()->sucess(Persona::findOrFail($id));
+        return response()->success(Persona::findOrFail($id));
     }
 
     /**
